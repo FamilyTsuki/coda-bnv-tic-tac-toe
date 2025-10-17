@@ -7,7 +7,9 @@ int main()
     int joueur1 = 1;
     int joueur2 = 2;
     int fin = 0;
-    int grille[3][3] = {{0,0,0}};
+    int grille[3][3] = {{0,0,0},
+                        {0,0,0},
+                        {0,0,0}} ;
     
     while (fin != 1)
     {
@@ -33,34 +35,17 @@ int main()
             }
             else 
             {
-                int r ;
-                int c ;
-                if (choi < 3)
-                {
-                    
-                    r = 0;
-                    c = choi;
-
-                }
-                else if (choi < 6)
-                {
-                    
-                    r = 1;
-                    c = choi - 3;
-                }
-                else if (choi < 9)
-                {
-                    
-                    r = 2;
-                    c = choi - 6;
-                }
-                if (grille[r][c] != 0)
+                int l = choi / 3;
+                int c  = choi % 3;
+                
+              
+                if (grille[l][c] != 0)
                 {
                     printf("Case deja occupee, choisissez une autre case.\n");
                 }
                 else 
                 {
-                    grille[r][c] = joueur1;
+                    grille[l][c] = joueur1;
                     ok = 1;
                 }
             }
@@ -84,21 +69,16 @@ int main()
             printf("bien jouer tu a gagner");
             fin = 1;
         }
-
+        if (fin == 1)
+        {
+            break;
+        }
+        sleep(1);
         int choi_ia = ia_debile(grille);
-
-        if (choi_ia < 3)
-        {
-            grille[0][choi_ia] = 2;
-        }
-        else if (choi_ia < 6)
-        {
-            grille[1][choi_ia - 3] = 2;
-        }
-        else if (choi_ia < 9)
-        {
-            grille[2][choi_ia - 6] = 2;
-        }
+        int l = choi_ia / 3;
+        int c  = choi_ia % 3;
+       
+        grille[l][c] = 2;
         if (victoir(grille , joueur2) == 3)
         {
             printf("bien jouer tu a egaliter");
