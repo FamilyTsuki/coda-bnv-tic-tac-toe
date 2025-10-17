@@ -79,6 +79,7 @@ int main()
         int c  = choi_ia % 3;
        
         grille[l][c] = 2;
+        affiche(grille);
         if (victoir(grille , joueur2) == 3)
         {
             printf("bien jouer tu a egaliter\n");
@@ -86,7 +87,7 @@ int main()
         }
         else if (victoir(grille , joueur2) == 2)
         {
-            printf("bien jouer tu a perdu"\n);
+            printf("bien jouer tu a perdu\n");
             fin = 1;
         }
         
