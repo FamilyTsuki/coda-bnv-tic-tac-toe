@@ -1,56 +1,53 @@
 
-int victoir(int **tab){
-    for (int i =0 ; i <3 ; i++){
-        if (tab[0][i] == TRUE){
-            if (tab[1][1] == TRUE){
-                if (i == 0 && tab[2][2] == TRUE){
-                    return 1
-                }
-            }
+#include <stdlib.h>
+#include <stdio.h>
 
+int victoir(int tab[3][3] , int joueur){
+    if (tab[1][1] == joueur){
+        if (tab[0][0] == joueur && tab[2][2] == joueur){
+            return tab[0][0];
         }
-
-    }
-
-
-}
-int victoir(int **tab){
-    if (tab[1][1] == True){
-        if (tab[0][0] == TRUE && tab[2][2] == TRUE){
-            return 1;
-        }
-        else if (tab[0][2] == TRUE && tab[2][0] == TRUE){
-            return 1;
+        else if (tab[0][2] == joueur && tab[2][0] == joueur){
+            return tab[0][2];
         }
     }
-    else if (tab[0][0] == TRUE){
-        if (tab[0][1] == TRUE && tab[0][2] == TRUE){
-            return 1;
+    if (tab[0][0] == joueur){
+        if (tab[0][1] == joueur && tab[0][2] == joueur){
+            return tab[0][1];
         }
-        else if (tab[1][0] == TRUE && tab[2][0] == TRUE){
-            return 1;
-        }
-    }
-    else if (tab[2][2] == TRUE){
-        if (tab[2][0] == TRUE && tab[2][1] == TRUE){
-            return 1;
-        }
-        else if (tab[0][2] == TRUE && tab[1][2] == TRUE){
-            return 1;
+        else if (tab[1][0] == joueur && tab[2][0] == joueur){
+            return tab[1][0];
         }
     }
-    else {
-        return 0;
+    if (tab[2][2] == joueur){
+        if (tab[2][0] == joueur && tab[2][1] == joueur){
+            return tab[2][0];
+        }
+        else if (tab[0][2] == joueur && tab[1][2] == joueur){
+            return tab[0][2];
+        }
     }
+    
+    return 0;
+    
 
 
 }
 
 int main(){
+    int j1 = 1;
+    int j2 = 2;
+    int tab[3][3] = {
+        {0,0,0},
+        {0,0,0},
+        {0,0,0}
+    };
+    printf("%d\n", victoir(tab,1));
 
-    int tab[3][3] = {{NULL,NULL,NULL},{NULL,NULL,NULL},{NULL,NULL,NULL}};
-    
-    affiche("%d",victoir(tab));
-    int tab[3][3] = {{TRUE,TRUE,TRUE},{NULL,NULL,NULL},{NULL,NULL,NULL}};
-    printf("%d",victoir(tab));
+    int tab2[3][3] = {
+        {1,1,1},
+        {0,0,0},
+        {0,0,0}
+    };
+    printf("%d\n", victoir(tab2,1));
 }
