@@ -23,7 +23,11 @@ void affiche(int tab[3][3]){
     printf("  -   -   - \n");
 }
 int main(){
-    int tab[3][3] = {{1,1,1},{NULL,NULL,NULL},{NULL,NULL,NULL}};
+    int tab[3][3] = {
+        {1,1,1},
+        {0,0,0},
+        {0,0,0}
+    };
     affiche(tab);
 
 
