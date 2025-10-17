@@ -1,10 +1,12 @@
-#include <stdlib.h>
+
 #include <stdio.h>
 
-
 void affiche(int tab[3][3]){
+    printf("\n -------------- \n\n\n\n" );
     for (int i = 0; i < 3; i++){
-        printf("  -   -   - \n");
+        if (i != 0){
+        printf(" -   -   - \n");
+        }
         for (int j = 0; j < 3; j++){
             char carac;
             if (tab[i][j] == 1) {
@@ -16,21 +18,13 @@ void affiche(int tab[3][3]){
             else {
                 carac = ' ';
             }
-            printf("| %c ", carac);
+            if (j != 0){
+                printf("| %c ", carac);
+            }
+            else
+                printf(" %c ", carac);
         }
-        printf("|\n");
+        printf("\n");
     }
-    printf("  -   -   - \n");
-}
-int main(){
-    int tab[3][3] = {
-        {1,1,1},
-        {0,0,0},
-        {0,0,0}
-    };
-    affiche(tab);
-
-
-
-
+    printf("\n" );
 }

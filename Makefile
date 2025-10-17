@@ -3,7 +3,9 @@
 NAME = tic_tac_toe
 
 SRCS = main.c \
-	function.c \
+	ia_debiles.c \
+	affichage.c \
+	victoir.c
 
 all: $(NAME)
 
