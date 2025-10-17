@@ -59,14 +59,14 @@ int main()
         
         if (victoir(grille , joueur1) == 3)
         {
-            printf("bien jouer tu a egaliter");
+            printf("bien jouer tu a egaliter\n");
             fin = 1;
 
         }
         else if (victoir(grille , joueur1) == 1)
         {
             
-            printf("bien jouer tu a gagner");
+            printf("bien jouer tu a gagner\n");
             fin = 1;
         }
         if (fin == 1)
@@ -81,12 +81,12 @@ int main()
         grille[l][c] = 2;
         if (victoir(grille , joueur2) == 3)
         {
-            printf("bien jouer tu a egaliter");
+            printf("bien jouer tu a egaliter\n");
             fin = 1;
         }
         else if (victoir(grille , joueur2) == 2)
         {
-            printf("bien jouer tu a perdu");
+            printf("bien jouer tu a perdu"\n);
             fin = 1;
         }
         
