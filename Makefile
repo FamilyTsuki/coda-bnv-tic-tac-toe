@@ -1,6 +1,6 @@
 # Makefile
 
-NAME = tic_tac_toe
+NAME = tic-tac-toe
 
 SRCS = main.c \
 	ia_debiles.c \

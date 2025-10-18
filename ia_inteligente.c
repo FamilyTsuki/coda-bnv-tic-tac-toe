@@ -1,5 +1,5 @@
 
-#include "tic_tac_toe.h"
+#include "tic-tac-toe.h"
 
 int ia_intelligent(int tab[3][3]) // fonction qui fait un choix intelligent pour l'ia difficile
     {

@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "tic_tac_toe.h"
+#include "tic-tac-toe.h"
 #include <unistd.h>
 int main() // fonction principale
 {
@@ -33,10 +33,12 @@ int main() // fonction principale
         }
         else // entrée valide
             {
-            if (difficulter == 1){
+            if (difficulter == 1)
+                {
                 printf("vous avez choisis la difficulter facile\n");
             }
-            else {
+            else 
+                {
                 printf("vous avez choisis la difficulter dificile\n");
             }
             choi_difficulter = 1; // sortir de la boucle
@@ -122,7 +124,7 @@ int main() // fonction principale
         int c  = choi_ia % 3; // calcul de la colonne en recupérant le reste de la division par 3
        
         grille[l][c] = 2; // met le choix de l'ia dans la grille
-        
+        sleep(1); // pause de 1 seconde pour simuler la reflexion de l'ia
         affiche(grille); // affiche la grille aprest le choix de l'ia
         
         if (victoir(grille , joueur2) == 3) // verifie si la grille est pleine
