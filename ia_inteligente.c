@@ -1,7 +1,8 @@
 
 #include "tic_tac_toe.h"
 
-int ia_intelligent(int tab[3][3]){
+int ia_intelligent(int tab[3][3]) // fonction qui fait un choix intelligent pour l'ia difficile
+    {
     
     for (int i = 0; i < 3; i++) //  verifier si l'ia a l'oportuniter de gagner en 1 coup
         { 
