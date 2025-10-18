@@ -1,16 +1,43 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "function.h"
+#include "tic_tac_toe.h"
 #include <unistd.h>
 int main()
 {
     int joueur1 = 1;
     int joueur2 = 2;
     int fin = 0;
+    int choi_ia;
     int grille[3][3] = {{0,0,0},
                         {0,0,0},
                         {0,0,0}} ;
     
+    int difficulter;
+ 
+        while(1 == 1)
+        {
+    printf("choisisser la difficulter 1 = facile 2 = dificile :\n");
+    if (scanf("%d", &difficulter) != 1) // vérifie que l'entrée est un entier
+    { 
+        printf("Entrée invalide, veuillez saisir un nombre.\n");
+        while (getchar() != '\n'); // vide le buffer
+            continue;
+    }
+    else if (difficulter !=  1 && difficulter != 2)
+    {
+        printf("Nombre incorrect, il ne peux etre que 1 ou 2 .\n");
+        
+    }
+    else {
+        if (difficulter == 1){
+            printf("vous avez choisis la difficulter facile\n");
+        }
+        else {
+            printf("vous avez choisis la difficulter dificile\n");
+        }
+        break;
+    }
+    }
     while (fin != 1)
     {
 
@@ -59,7 +86,7 @@ int main()
         
         if (victoir(grille , joueur1) == 3)
         {
-            printf("bien jouer tu a egaliter\n");
+            printf("egaliter\n");
             fin = 1;
 
         }
@@ -74,7 +101,13 @@ int main()
             break;
         }
         sleep(1);
-        int choi_ia = ia_debile(grille);
+        
+        if (difficulter == 2){
+            choi_ia = ia_intelligent(grille);
+        }
+        else {
+            choi_ia = ia_debile(grille);
+        }
         int l = choi_ia / 3;
         int c  = choi_ia % 3;
        
@@ -82,12 +115,12 @@ int main()
         affiche(grille);
         if (victoir(grille , joueur2) == 3)
         {
-            printf("bien jouer tu a egaliter\n");
+            printf("egaliter\n");
             fin = 1;
         }
         else if (victoir(grille , joueur2) == 2)
         {
-            printf("bien jouer tu a perdu\n");
+            printf("Tu a perdu\n");
             fin = 1;
         }
         

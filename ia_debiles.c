@@ -2,8 +2,8 @@
 #include <time.h>  
 #include <stdlib.h> 
 int ia_debile(int tab[3][3]){
- 
-    while(1 == 1){
+    int max_i = 100;
+    while(max_i > 0){
         srand(time(NULL));
         int choi = rand() % 8 + 1;
         if (choi < 3){
@@ -22,6 +22,13 @@ int ia_debile(int tab[3][3]){
             }
         }
         
-     
+        max_i --;
     }  
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            if (tab[i][j] == 0){
+                return i * 3 + j;
+            }
+        }
+    }
 }
