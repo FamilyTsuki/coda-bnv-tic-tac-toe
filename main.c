@@ -8,46 +8,51 @@ int main()
     int joueur2 = 2;
     int fin = 0;
     int choi_ia;
+    int choi;
+    int ok;
+    int choi_difficulter = 0;
     int grille[3][3] = {{0,0,0},
                         {0,0,0},
                         {0,0,0}} ;
     
     int difficulter;
  
-        while(1 == 1)
+    while(choi_difficulter == 0)
         {
-    printf("choisisser la difficulter 1 = facile 2 = dificile :\n");
-    if (scanf("%d", &difficulter) != 1) // vérifie que l'entrée est un entier
-    { 
-        printf("Entrée invalide, veuillez saisir un nombre.\n");
-        while (getchar() != '\n'); // vide le buffer
-            continue;
-    }
-    else if (difficulter !=  1 && difficulter != 2)
-    {
-        printf("Nombre incorrect, il ne peux etre que 1 ou 2 .\n");
-        
-    }
-    else {
-        if (difficulter == 1){
-            printf("vous avez choisis la difficulter facile\n");
+        printf("choisisser la difficulter 1 = facile 2 = dificile :\n");
+        if (scanf("%d", &difficulter) != 1) // vérifie que l'entrée est un entier
+            { 
+            printf("Entrée invalide, veuillez saisir un nombre.\n");
+            while (getchar() != '\n'); // vide le buffer
+                continue;
         }
-        else {
-            printf("vous avez choisis la difficulter dificile\n");
+        else if (difficulter !=  1 && difficulter != 2)
+            {
+            printf("Nombre incorrect, il ne peux etre que 1 ou 2 .\n");
+            
         }
-        break;
+        else 
+            {
+            if (difficulter == 1){
+                printf("vous avez choisis la difficulter facile\n");
+            }
+            else {
+                printf("vous avez choisis la difficulter dificile\n");
+            }
+            choi_difficulter = 1;
+        }
     }
-    }
+    printf("%d", difficulter);
     while (fin != 1)
-    {
+        {
 
 
         affiche(grille);
 
-        int choi;
-        int ok = 0; 
+        
+        ok = 0; 
         while(ok != 1)
-        {
+            {
             printf("Choisissez un nombre de 0 a 8 :\n");
             if (scanf("%d", &choi) != 1) // vérifie que l'entrée est un entier
             { 
@@ -85,34 +90,41 @@ int main()
         affiche(grille);
         
         if (victoir(grille , joueur1) == 3)
-        {
+            {
             printf("egaliter\n");
             fin = 1;
 
         }
         else if (victoir(grille , joueur1) == 1)
-        {
+            {
             
             printf("bien jouer tu a gagner\n");
             fin = 1;
         }
         if (fin == 1)
-        {
+            {
             break;
         }
-        sleep(1);
         
-        if (difficulter == 2){
+        printf("1");
+        if (difficulter == 2)
+            {
+            printf("1,sa marche");
             choi_ia = ia_intelligent(grille);
         }
-        else {
+        else 
+            {
+            printf("1,sa marche pas");
             choi_ia = ia_debile(grille);
         }
+        printf("2");
         int l = choi_ia / 3;
         int c  = choi_ia % 3;
        
         grille[l][c] = 2;
+        printf("3");
         affiche(grille);
+        printf("4");
         if (victoir(grille , joueur2) == 3)
         {
             printf("egaliter\n");
