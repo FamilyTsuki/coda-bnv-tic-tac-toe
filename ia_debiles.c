@@ -1,11 +1,10 @@
-
 #include <time.h>  
 #include <stdlib.h> 
 int ia_debile(int tab[3][3]){
+    srand((unsigned)time(NULL)); // seed une seule fois
     int max_i = 100;
     while(max_i > 0){
-        srand(time(NULL));
-        int choi = rand() % 8 + 1;
+        int choi = rand() % 9; // 0..8
         if (choi < 3){
             if (tab[0][choi] == 0){
                 return choi ;
@@ -16,7 +15,7 @@ int ia_debile(int tab[3][3]){
                 return choi ;
             }
         }
-        else if (choi < 9){
+        else { // choi < 9
             if (tab[2][choi - 6] == 0){
                 return choi ;
             }
@@ -31,4 +30,5 @@ int ia_debile(int tab[3][3]){
             }
         }
     }
+    return 0; // sécurité si aucune case (ne devrait pas arriver)
 }

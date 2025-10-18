@@ -1,4 +1,3 @@
-
 int victoir(int tab[3][3] , int joueur){
 
     
@@ -11,7 +10,7 @@ int victoir(int tab[3][3] , int joueur){
         }
     }
 
-    for (int i = 0; i < 3; i = i++){
+    for (int i = 0; i < 3; i++) {
         if (tab[i][0] == joueur){
             if (tab[i][1] == joueur && tab[i][2] == joueur){
                 return joueur;
@@ -34,6 +33,4 @@ int victoir(int tab[3][3] , int joueur){
 
     return 3;
     
-
-
 }
